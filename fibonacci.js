@@ -11,8 +11,18 @@ function fibs(n) {
             let fibNum = fibArr[fibArr.length - 1] + fibArr[fibArr.length-2];
             fibArr.push(fibNum);
         }
-        return console.log(fibArr);
+        return fibArr;
     }
 }
 
-fibs(8);
+console.log(fibs(15));
+
+function fibsRec(n) {
+    if(n <= 0) return null;
+    if (n < 2) return [0,1];
+    const fibArr = fibsRec(n-1);
+    return [...fibArr, fibArr[n-1] + fibArr[n-2]];
+
+}
+
+console.log(fibsRec(6))
